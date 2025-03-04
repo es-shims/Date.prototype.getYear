@@ -5,7 +5,7 @@ var inspect = require('object-inspect');
 var forEach = require('for-each');
 
 function getUTCYear(y) {
-	var d = new Date(Date.UTC(y));
+	var d = new Date(Date.UTC(y, 0)); // the month argument is required for node < 8
 	d.setHours(d.getHours() + (d.getTimezoneOffset() / 60));
 	return d;
 }
